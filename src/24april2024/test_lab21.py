@@ -3,8 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-import time
-
 
 def test_vwo():
     driver = webdriver.Chrome()
@@ -16,7 +14,7 @@ def test_vwo():
     email.send_keys("abc@gmail.com")
     password.send_keys("abc@gmail")
     submit.click()
-
+    # explict wait
     WebDriverWait(driver=driver, timeout=5).until(
         EC.visibility_of_element_located((By.ID, "js-notification-box-msg"))
     )
